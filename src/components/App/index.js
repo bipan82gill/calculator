@@ -6,8 +6,23 @@ import './App.css';
 const App = ()=>{
     const [value, setValue] = useState("0");
 
-    const handleButtonPress = () => {
-            
+    const handleButtonPress = (content) => () => {
+        const num = parseFloat(value);    
+        if(content === 'AC'){
+                setValue("0");
+                return;
+            }
+        if(content ==="±")
+        {
+            setValue((num * -1).toString());
+            return;
+        }
+        if(content ==="%")
+        {
+            setValue((num/100).toString());
+            return;
+        }
+        setValue(num+content);
     }
     return <div className="App">
         <div className="top">4:43</div>
