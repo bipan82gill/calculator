@@ -35,20 +35,35 @@ const App = ()=>{
             setOperator('+');
             return;
         }
-        if(content === '−'){
-            setOperator('−');
+        if(content === "−"){
+            setMemory(parseFloat(value));
+            setValue('0');
+            setOperator("−");
+            return;
         }
         if(content === "×"){
+            setMemory(parseFloat(value));
+            setValue('0');
             setOperator("×");
+            return;
         }
         if(content === "÷"){
+            setMemory(parseFloat(value));
+            setValue('0');
             setOperator("÷");
+            return;
         }
         if(content === '='){
             if(!operator)
             return;
             if(operator ==="+"){
                 setValue((memory + parseFloat(value)).toString());
+            }else if(operator === '−'){
+                setValue((memory - parseFloat(value)).toString());
+            }else if(operator === "×"){
+                setValue((memory * parseFloat(value)).toString());
+            }else if(operator ==="÷"){
+                setValue((memory/parseFloat(value)).toString());
             }
             setMemory(null);
             setOperator(null);
