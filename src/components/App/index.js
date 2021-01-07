@@ -28,6 +28,12 @@ const App = ()=>{
             setOperator(null);
             return;
         }
+        if(content === "."){
+            if(value.includes('.'))
+            return;
+            setValue(value +'.');
+            return;
+        }
 
         if(content === '+'){
             if(operator !== null){
@@ -121,7 +127,11 @@ const App = ()=>{
             setOperator(null);
             return;
         }
+        if(value[value.length - 1] === '.'){
+            setValue(value + content);
+        }else{
         setValue(parseFloat(num+content).toString());
+        }
     }
     return <div className="App">
         <div className="top">4:43</div>
