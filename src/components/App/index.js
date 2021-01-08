@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import commafy from '../util/commafy';
 import Button from '../Button';
 import './App.css';
 import menu from '../../assests/menu.png';
+
 
 const App = ()=>{
     const [time, setTime] = useState(new Date());
@@ -144,7 +146,7 @@ const App = ()=>{
                 .padStart(2,'0')}</div>
             <div className="menu"><img src={menu} alt="menu"/></div>
         </div>
-        <div className="display">{value}</div>
+        <div className="display">{commafy(value)}</div>
         <div className="buttons">
             <Button onButtonClick={handleButtonPress} content="AC" type="function"/>
             <Button onButtonClick={handleButtonPress} content="±" type="function"/>
