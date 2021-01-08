@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../Button';
 import './App.css';
+import menu from '../../assests/menu.png';
 
 const App = ()=>{
+    const [time, setTime] = useState(new Date());
     const [value, setValue] = useState("0");
     const [memory, setMemory] = useState(null);
     const [operator, setOperator] = useState(null);
@@ -134,7 +136,14 @@ const App = ()=>{
         }
     }
     return <div className="App">
-        <div className="top">4:43</div>
+        <div className="top">
+            <div className="time">
+                {time.getHours()}:
+                {time.getMinutes()
+                .toString()
+                .padStart(2,'0')}</div>
+            <div className="menu"><img src={menu} alt="menu"/></div>
+        </div>
         <div className="display">{value}</div>
         <div className="buttons">
             <Button onButtonClick={handleButtonPress} content="AC" type="function"/>
